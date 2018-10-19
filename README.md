@@ -1,0 +1,1 @@
+# ADC2-Store-Manager-Api
