@@ -68,9 +68,9 @@ class TestAuths(TestBase):
             self.assertEqual(response.status_code, 201)
 
             response = self.client.post(
-            '/api/v1/users/login',
+            '/api/v1/user/login',
             data = json.dumps(self.test_login),
             content_type = 'application/json'
             )
 
-            self.assertEqual(response.status_code, 201)
+            self.assertEqual(response.status_code, 200)
