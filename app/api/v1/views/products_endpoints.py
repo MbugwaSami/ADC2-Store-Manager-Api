@@ -26,4 +26,8 @@ class ProductsApi(Resource):
 
         return response
 
-    
+    def get(self):
+        products_list=products_object.get_all()
+        response=jsonify(products_list)
+        response.status_code=200
+        return response
