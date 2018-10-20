@@ -7,6 +7,7 @@ colorama==0.4.0
 coverage==4.5.1
 Flask==1.0.2
 Flask-RESTful==0.3.6
+gunicorn==19.9.0
 isort==4.3.4
 ItsDangerous==1.0.0
 Jinja2==2.10
@@ -21,5 +22,6 @@ pylint==2.1.1
 pytest==3.9.1
 pytz==2018.5
 six==1.11.0
+typed-ast==1.1.0
 Werkzeug==0.14.1
 wrapt==1.10.11
