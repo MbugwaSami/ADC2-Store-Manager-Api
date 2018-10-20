@@ -20,9 +20,20 @@ class TestBase(unittest.TestCase):
         )
 
         self.test_sale = dict(
-        sale_id = 1,
-        items = 3,
-        value = 3000,
-        profit = 600,
-        time = 10-18-2018
-        )
+           sale_id = 1,
+           items = 3,
+           value = 3000,
+           profit = 600,
+           time = 10-18-2018
+           )
+
+        self.test_user = dict(
+            email = "samimbugwa@gmail.com",
+            names = "Sammy Njau",
+            password = "12345",
+            role = "attendant",
+            )
+
+        self.test_login = dict(
+            email = "samimbugwa@gmail.com",
+            password = "12345")
