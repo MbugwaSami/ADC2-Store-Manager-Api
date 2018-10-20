@@ -1,7 +1,7 @@
 # ADC2_Store_Manager
 
 [![Build Status](https://travis-ci.org/MbugwaSami/ADC2-Store-Manager-Api.svg?branch=develop)](https://travis-ci.org/MbugwaSami/ADC2-Store-Manager-Api)
-[![Coverage Status](https://coveralls.io/repos/github/MbugwaSami/ADC2-Store-Manager-Api/badge.svg?branch=develop)](https://coveralls.io/github/MbugwaSami/ADC2-Store-Manager-Api?
+[![Coverage Status](https://coveralls.io/repos/github/MbugwaSami/ADC2-Store-Manager-Api/badge.svg?branch=develop)]
 
 This repository  contains API endpoints for  Store Manager application.
 
