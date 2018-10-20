@@ -22,7 +22,7 @@ class TestSales(TestBase):
 
         response = self.client.post(
         '/api/v1/sales',
-        data = json.dumps(self.test_sales),
+        data = json.dumps(self.test_sale),
         content_type='application/json'
         )
 

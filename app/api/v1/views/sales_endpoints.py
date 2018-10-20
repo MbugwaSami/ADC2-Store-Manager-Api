@@ -22,3 +22,11 @@ class SalesApi(Resource):
         response.status_code = 201
 
         return response
+
+
+    def get(self):
+        sales=sale_object.get_all()
+        response=jsonify(sales)
+        response.status_code=200
+
+        return response    
