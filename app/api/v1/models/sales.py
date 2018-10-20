@@ -1,3 +1,6 @@
+all_sales={}
+new_sale={}
+
 # class for handling all sales data
 class Sales(object):
 
@@ -30,3 +33,4 @@ class Sales(object):
         all_sales[sale_id]=new_sale
 
         return {'message':'sale completed'}
+ 
