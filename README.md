@@ -1,5 +1,7 @@
 # ADC2_Store_Manager
 
+[![Build Status](https://travis-ci.org/MbugwaSami/ADC2-Store-Manager-Api.svg?branch=develop)](https://travis-ci.org/MbugwaSami/ADC2-Store-Manager-Api)
+
 This repository  contains API endpoints for  Store Manager application.
 
 The minimum required endpoint are  
