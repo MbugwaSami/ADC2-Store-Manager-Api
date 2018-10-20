@@ -30,3 +30,16 @@ class SalesApi(Resource):
         response.status_code=200
 
         return response    
+
+
+
+    # endpoint class for geting one sale
+
+class SingleSaleApi(Resource):
+
+    def get(self,sale_id):
+        single_sale=sale_object.get_one(sale_id)
+        response = jsonify(single_sale)
+        response.status_code=200
+
+        return response    
