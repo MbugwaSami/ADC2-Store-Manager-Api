@@ -27,7 +27,19 @@ class ProductsApi(Resource):
         return response
 
     def get(self):
-        products_list=products_object.get_all()
-        response=jsonify(products_list)
-        response.status_code=200
+        products_list = products_object.get_all()
+        response = jsonify(products_list)
+        response.status_code = 200
         return response
+
+
+
+  # endpoint class for geting one product
+class SingleProductApi(Resource):
+
+    def get(self,product_id):
+
+        response = jsonify(products_object.get_one(product_id))
+        response.status_code = 200
+
+        return response      
