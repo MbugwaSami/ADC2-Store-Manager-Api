@@ -15,6 +15,10 @@ class TestProducts(TestBase):
 
         self.assertEqual(response.status_code, 201)
 
+        response_data = json.loads(response.data)
+        self.assertEqual("Product Succesfuly added",response_data["message"])
+
+
 
     def test_get_products(self):
 
@@ -30,6 +34,9 @@ class TestProducts(TestBase):
 
         self.assertEqual(response.status_code, 200)
 
+        response_data = json.loads(response.data)
+        self.assertEqual("The above items were found",response_data["message"])
+
 
     def test_get_one_product(self):
 
@@ -44,6 +51,9 @@ class TestProducts(TestBase):
         response = self.client.get('/api/v1/products/1')
 
         self.assertEqual(response.status_code, 200)
+
+        response_data = json.loads(response.data)
+        self.assertEqual("The above item was found",response_data["message"])
 
     def test_validate_product_name(self):
 
