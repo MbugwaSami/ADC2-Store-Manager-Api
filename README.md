@@ -34,7 +34,7 @@ The Admin is responsible for adding new products and creating user accounts and 
 
 - open a git bash
 - git clone https://github.com/MbugwaSami/ADC2-Store-Manager-Api.git
-- cd ADC2-Store-Manager-Api/tests
+- cd ADC2-Store-Manager-Api/
 - pip install virtualenv
 - python -m venv venv
 - source venv/scripts/activate
@@ -42,6 +42,7 @@ The Admin is responsible for adding new products and creating user accounts and 
 - pip install flask-restful
 - pip install pytest
 - pip install pylint
+- cd tests
 - pytest test_product.py to run the products tests
 - pytest test_sales.py to run the sales tests
 - pytest test_auths.py to run the auth tests
