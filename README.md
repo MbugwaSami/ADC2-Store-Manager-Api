@@ -9,48 +9,48 @@ The Admin is responsible for adding new products and creating user accounts and 
 ### The minimum required endpoint are  
 | Endpoint | Description |
 | --- | --- |
-GET /Fetch all products	| This endpoint gets all available products in the system.<br>
+GET /Fetch all products	| This endpoint gets all available products in the system.
 Accesed to both the Admin and the stored attendant
 
-GET /Fetch a single product record	| This endpoint gets a specific product using the product’s id.<br>Accesed by the Admin and the store attendant.
+GET /Fetch a single product record	| This endpoint gets a specific product using the product’s id. Accesed by the Admin and the store attendant.
 
-GET /Fetch all sale records.|This endpoint gets all sales done by all the store attendants.<br>
+GET /Fetch all sale records.|This endpoint gets all sales done by all the store attendants.
 Accesed only by the store owner/admin.
 
-GET /sales/	Fetch a single sale record	|This endpoint gets a specific sale record using the sale record Id.<br> Accesed by the store owner/admin and the creator (store attendant) of the specific sale record.
+GET /sales/	Fetch a single sale record	|This endpoint gets a specific sale record using the sale record Id. Accesed by the store owner/admin and the creator (store attendant) of the specific sale record.
 
-POST /Create a product | This endpoint creates a new product record. <br> Accessed by  the store owner/admin only.
+POST /Create a product | This endpoint creates a new product record. Accessed by  the store owner/admin only.
 
-POST /Create a sale order|This endpoint creates a sale record.<br>Accessed by the store attendant
+POST /Create a sale order|This endpoint creates a sale record. Accessed by the store attendant
 
 ### How to run the application
 
-open a git bash
-git clone
-cd ADC2-Store-Manager-Api
-pip install virtualenv
-python -m venv venv (windows os)
-source venv/scripts/activate
-pip install flask
-pip install flask-restful
-python run.py
-Test the endpoints url on postaman
+- open a git bash
+- git clone https://github.com/MbugwaSami/ADC2-Store-Manager-Api.git
+- cd ADC2-Store-Manager-Api
+- pip install virtualenv
+- python -m venv venv
+- source venv/scripts/activate
+- pip install flask
+- pip install flask-restful
+- python run.py
+- Test the endpoints url on postaman
 
 
 ### How to run the tests 
 
-open a git bash
-git clone
-cd ADC2-Store-Manager-Api/tests
-pip install virtualenv
-python -m venv venv (windows os)
-source venv/scripts/activate
-pip install flask
-pip install flask-restful
-pip install pytest
-pip install pylint
-pytest test_product.py to run the products tests
-pytest test_sales.py to run the sales tests
-pytest test_auths.py to run the auth tests
+- open a git bash
+- git clone https://github.com/MbugwaSami/ADC2-Store-Manager-Api.git
+- cd ADC2-Store-Manager-Api/tests
+- pip install virtualenv
+- python -m venv venv
+- source venv/scripts/activate
+- pip install flask
+- pip install flask-restful
+- pip install pytest
+- pip install pylint
+- pytest test_product.py to run the products tests
+- pytest test_sales.py to run the sales tests
+- pytest test_auths.py to run the auth tests
 
 
