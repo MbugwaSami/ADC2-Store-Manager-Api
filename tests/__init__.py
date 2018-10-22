@@ -19,13 +19,67 @@ class TestBase(unittest.TestCase):
         minStock = 10
         )
 
+        self.test_product1 =dict(
+        product_id = 1,
+        product_name = "khaki Trouser",
+        description = "White size 32",
+        price = "o",
+        stock = 100,
+        minStock = 10
+        )
+
+        self.test_product2 =dict(
+        product_id = 1,
+        product_name = "khaki Trouser",
+        description = "White size 32",
+        price = 300,
+        stock = "ee",
+        minStock = 10
+        )
+
+        self.test_product3 =dict(
+        product_id = 1,
+        product_name = "khaki Trouser",
+        description = "White size 32",
+        price = 300,
+        stock = 100,
+        minStock = "22"
+        )
+
         self.test_sale = dict(
            sale_id = 1,
-           items = 3,
+           items = "khaki shirt",
            value = 3000,
-           profit = 600,
            time = 10-18-2018
            )
+
+        self.test_sale1 = dict(
+           sale_id = 1,
+           items = "khaki shirt",
+           value = "test",
+           time = "10-18-2018"
+           )
+
+        self.test_sale2 = dict(
+           sale_id = 1,
+           items = "khaki shirt",
+           value = 2000,
+           time = "2000"
+           )
+
+        self.test_user = dict(
+            email = "samimbugwa@gmail.com",
+            names = "Sammy Njau",
+            password = "Mwoboko10@",
+            role = "attendant",
+            )
+
+        self.test_user1 = dict(
+            email = "samimbugw",
+            names = "Sammy Njau",
+            password = "12345",
+            role = "attendant",
+            )
 
         self.test_user = dict(
             email = "samimbugwa@gmail.com",

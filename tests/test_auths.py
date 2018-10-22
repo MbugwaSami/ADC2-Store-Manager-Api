@@ -74,3 +74,44 @@ class TestAuths(TestBase):
             )
 
             self.assertEqual(response.status_code, 200)
+
+
+    def  test_email_is_valid(self):
+
+
+        response = self.client.post(
+        '/api/v1/users/register',
+        data = json.dumps(self.test_user1),
+        content_type = 'application/json'
+        )
+
+
+        response_data = json.loads(response.data)
+        self.assertEqual("Please enter a valid email address",response_data["message"])
+
+
+
+
+    def test_password_strength(self):
+
+
+        response = self.client.post(
+        '/api/v1/users/register',
+        data = json.dumps(self.test_user2),
+        content_type = 'application/json'
+        )
+
+        response_data = json.loads(response.data)
+        self.assertEqual("Password does not meet the strength criteria",response_data["message"])
+
+
+
+
+
+
+                  
+
+
+
+
+                      
