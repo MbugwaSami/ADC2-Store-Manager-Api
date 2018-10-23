@@ -43,6 +43,9 @@ class TestAuths(TestBase):
 
         self.assertEqual(response.status_code, 200)
 
+        response_data = json.loads(response.data)
+        self.assertEqual("This are the users in the system",response_data["message"])
+
 
     def test_get_one_user(self):
 
@@ -57,6 +60,9 @@ class TestAuths(TestBase):
         response = self.client.get('/api/v1/user/samimbugwa@gmail.com')
 
         self.assertEqual(response.status_code, 200)
+
+        response_data = json.loads(response.data)
+        self.assertEqual("The above user was found",response_data["message"])
 
     def test_user_login(self):
 
@@ -74,3 +80,47 @@ class TestAuths(TestBase):
             )
 
             self.assertEqual(response.status_code, 200)
+
+            response_data = json.loads(response.data)
+            self.assertEqual("login was succesful",response_data["message"])
+
+
+    def  test_email_is_valid(self):
+
+
+        response = self.client.post(
+        '/api/v1/users/register',
+        data = json.dumps(self.test_user1),
+        content_type = 'application/json'
+        )
+
+
+        response_data = json.loads(response.data)
+        self.assertEqual("Please enter a valid email address",response_data["message"])
+
+
+
+
+    def test_password_strength(self):
+
+
+        response = self.client.post(
+        '/api/v1/users/register',
+        data = json.dumps(self.test_user2),
+        content_type = 'application/json'
+        )
+
+        response_data = json.loads(response.data)
+        self.assertEqual("Password does not meet the strength criteria",response_data["message"])
+
+
+
+
+
+
+                  
+
+
+
+
+                      

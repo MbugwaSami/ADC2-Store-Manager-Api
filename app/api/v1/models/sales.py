@@ -20,14 +20,13 @@ class Sales(object):
 
 
     # method adds new sale to all_sales dictionary
-    def add_sale(self,sale_id,items,value,profit,time):
+    def add_sale(self,sale_id,item,value,time):
 
         if sale_id in all_sales:
             return {'message':'It seems this sale has already been made'}
 
-        new_sale['items']=items
+        new_sale['item']=item
         new_sale['value']=value
-        new_sale['profit']=profit
         new_sale['time']=time
 
         all_sales[sale_id]=new_sale

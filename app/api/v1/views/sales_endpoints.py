@@ -13,12 +13,11 @@ class SalesApi(Resource):
         data=request.get_json()
 
         sale_id = len(all_sales) + 1
-        items = data.get('items')
+        item = data.get('item')
         value = data.get('value')
-        profit = data.get('profit')
         time = data.get('time')
 
-        response = jsonify(sale_object.add_sale(sale_id,items,value,profit,time))
+        response = jsonify(sale_object.add_sale(sale_id,item,value,time))
         response.status_code = 201
 
         return response
