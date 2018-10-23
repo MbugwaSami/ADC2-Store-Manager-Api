@@ -46,6 +46,15 @@ class TestBase(unittest.TestCase):
         minStock = "22"
         )
 
+        self.test_product4 =dict(
+        product_id = 1,
+        product_name = "",
+        description = "White size 32",
+        price = 300,
+        stock = 100,
+        minStock = "22"
+        )
+
         self.test_sale = dict(
            sale_id = 1,
            items = "khaki shirt",
