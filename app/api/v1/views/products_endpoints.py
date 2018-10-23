@@ -28,6 +28,19 @@ class ProductsApi(Resource):
             return {'message':'Product name cannot be empty'}
 
 
+        if type(stock) is not int:
+
+            return {'message':'Stock must be an integer'}
+
+        if type(minStock) is not int:
+
+            return {'message':'minimum Stock must be an integer'}    
+
+        if type(price) is not int:
+
+            return {'message':'Product price must be a number'}
+        
+
         response = jsonify(products_object.add_product(product_id,product_name,description,price,stock,minStock))
         response.status_code = 201
 

@@ -34,7 +34,7 @@ class Products(object):
 
                 
                 return {'message':'Product with this name already exists'}
-
+        
         product_details['product_name'] = product_name
         product_details['price'] = price
         product_details['description'] = description
