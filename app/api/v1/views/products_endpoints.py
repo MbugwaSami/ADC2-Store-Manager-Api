@@ -13,12 +13,19 @@ class ProductsApi(Resource):
 
         data=request.get_json()
 
+        if not data:
+            return {'message':'fields cannot be empty'}
+
         product_id = len(all_Products)+1
         product_name = data.get('product_name')
         description = data.get('description')
         price = data.get('price')
         stock = data.get('stock')
         minStock = data.get('minStock')
+
+        if not product_name or product_name.isspace():
+
+            return {'message':'Product name cannot be empty'}
 
 
         response = jsonify(products_object.add_product(product_id,product_name,description,price,stock,minStock))

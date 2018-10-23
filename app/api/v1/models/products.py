@@ -28,6 +28,13 @@ class Products(object):
 
             return {'message':'This product already exists'}
 
+        for item in all_Products:
+
+            if product_name == all_Products[item]['product_name']:
+
+                
+                return {'message':'Product with this name already exists'}
+
         product_details['product_name'] = product_name
         product_details['price'] = price
         product_details['description'] = description
@@ -36,5 +43,5 @@ class Products(object):
 
         all_Products[product_id] = product_details
         
-        return {'message':'product succesfull added'}
+        return {'message':'product succesfully added'}
 
