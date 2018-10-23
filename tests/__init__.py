@@ -58,15 +58,15 @@ class TestBase(unittest.TestCase):
         self.test_sale = dict(
            sale_id = 1,
            items = "khaki shirt",
-           value = 3000,
-           time = 10-18-2018
+           value = 3000.-0,
+           time = "22:12:12"
            )
 
         self.test_sale1 = dict(
            sale_id = 1,
            items = "khaki shirt",
            value = "test",
-           time = "10-18-2018"
+           time = "10:18:20"
            )
 
         self.test_sale2 = dict(

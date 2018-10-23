@@ -14,7 +14,7 @@ class ProductsApi(Resource):
         data=request.get_json()
 
         if not data:
-            return {'message':'fields cannot be empty'}
+            return {'message':'Product not available'}
 
         product_id = len(all_Products)+1
         product_name = data.get('product_name')
@@ -34,9 +34,11 @@ class ProductsApi(Resource):
 
         if type(minStock) is not int:
 
-            return {'message':'minimum Stock must be an integer'}    
+            return {'message':'minimum Stock must be an integer'}
 
-        if type(price) is not int:
+        try:
+                price = float(price)
+        except ValueError:
 
             return {'message':'Product price must be a number'}
         
