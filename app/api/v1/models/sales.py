@@ -33,11 +33,10 @@ class Sales(object):
 
                  return {'message':'Product not available'}
 
-            new_sale['item']=item
-            new_sale['value']=value
-            new_sale['time']=time
+        new_sale['item']=item
+        new_sale['value']=value
+        new_sale['time']=time
 
-            all_sales[sale_id]=new_sale
+        all_sales[sale_id]=new_sale
 
-            return {'message':'sale completed'}     
- 
+        return {'message':'sale completed'}

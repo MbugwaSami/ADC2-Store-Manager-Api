@@ -41,7 +41,7 @@ class ProductsApi(Resource):
         except ValueError:
 
             return {'message':'Product price must be a number'}
-        
+
 
         response = jsonify(products_object.add_product(product_id,product_name,description,price,stock,minStock))
         response.status_code = 201
@@ -50,7 +50,7 @@ class ProductsApi(Resource):
 
     def get(self):
         products_list = products_object.get_all()
-        response = jsonify(products_list)
+        response = jsonify({"products":products_list,"message":"The above items were found"})
         response.status_code = 200
         return response
 
@@ -61,7 +61,7 @@ class SingleProductApi(Resource):
 
     def get(self,product_id):
 
-        response = jsonify(products_object.get_one(product_id))
+        response = jsonify({"product":products_object.get_one(product_id),"message":"The above item was found"})
         response.status_code = 200
 
-        return response      
+        return response

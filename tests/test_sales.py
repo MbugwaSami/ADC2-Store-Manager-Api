@@ -18,7 +18,7 @@ class TestSales(TestBase):
         self.assertEqual(response.status_code, 201)
 
         response_data = json.loads(response.data)
-        # self.assertEqual("sale completed",response_data["message"])
+        self.assertEqual("sale completed",response_data["message"])
 
 
     def test_get_sales(self):
@@ -36,7 +36,7 @@ class TestSales(TestBase):
         self.assertEqual(response.status_code, 200)
 
         response_data = json.loads(response.data)
-        # self.assertEqual("The above sales were found",response_data["message"])
+        self.assertEqual("The above sales were found",response_data["message"])
 
 
 

@@ -33,7 +33,7 @@ class SalesApi(Resource):
                 value = float(value)
         except ValueError:
 
-            return {'message':'Value must me a number'}      
+            return {'message':'Value must me a number'}
 
         response = jsonify(sale_object.add_sale(sale_id,item,value,validtime))
         response.status_code = 201
@@ -43,10 +43,10 @@ class SalesApi(Resource):
 
     def get(self):
         sales=sale_object.get_all()
-        response=jsonify(sales)
+        response=jsonify({"sale":sales,"message":"The above sales were found"})
         response.status_code=200
 
-        return response    
+        return response
 
 
 
@@ -56,7 +56,7 @@ class SingleSaleApi(Resource):
 
     def get(self,sale_id):
         single_sale=sale_object.get_one(sale_id)
-        response = jsonify(single_sale)
+        response = jsonify({"sale":single_sale,"message":"The above sale was found"})
         response.status_code=200
 
-        return response    
+        return response

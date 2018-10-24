@@ -16,7 +16,7 @@ class TestProducts(TestBase):
         self.assertEqual(response.status_code, 201)
 
         response_data = json.loads(response.data)
-        # self.assertEqual("Product Succesfuly added",response_data["message"])
+        #self.assertEqual("Product Succesfuly added",response_data["message"])
 
 
 
@@ -35,7 +35,7 @@ class TestProducts(TestBase):
         self.assertEqual(response.status_code, 200)
 
         response_data = json.loads(response.data)
-        # self.assertEqual("The above items were found",response_data["message"])
+        self.assertEqual("The above items were found",response_data["message"])
 
 
     def test_get_one_product(self):
@@ -53,7 +53,7 @@ class TestProducts(TestBase):
         self.assertEqual(response.status_code, 200)
 
         response_data = json.loads(response.data)
-        # self.assertEqual("The above item was found",response_data["message"])
+        self.assertEqual("The above item was found",response_data["message"])
 
     def test_validate_product_name(self):
 
@@ -92,10 +92,10 @@ class TestProducts(TestBase):
         )
 
         response_data = json.loads(response.data)
-        self.assertEqual("Product price must be a number",response_data["message"])  
+        self.assertEqual("Product price must be a number",response_data["message"])
 
 
-     
+
     def test_stock_is_number(self):
 
         response = self.client.post(
@@ -114,11 +114,4 @@ class TestProducts(TestBase):
         )
 
         response_data = json.loads(response.data)
-        self.assertEqual("minimum Stock must be an integer",response_data["message"])        
-             
-      
-             
-
-        
-
-              
+        self.assertEqual("minimum Stock must be an integer",response_data["message"])
