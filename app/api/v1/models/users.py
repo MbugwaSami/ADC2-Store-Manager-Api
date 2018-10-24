@@ -5,9 +5,27 @@ logged_user={}
 
 # classs for handling user data
 class Users(object):
+    """
+    This class has methods for manipulation of user data.
+    """
 
     # method to add new user
     def add_user(self,email,names,password,role):
+        """"
+        This method adds anew user
+        param1:email
+        param2:names.
+        paeram3:password.
+        param4:role.
+
+        returns: user added messages.
+        raises:invalid email message.
+        raises:email alrleady added message.
+        raises:invalid role message.
+        raises:week password error.
+
+
+        """
 
         if not self.validate_email(email):
             return {"message":"Please enter a valid email address"}
@@ -30,6 +48,12 @@ class Users(object):
 
     # method for user login
     def user_login(self,email,password):
+        """
+        This method logs in a new user.
+        param:email.
+        param:password.
+        returns:logged in message.
+        """
 
         logged_user["email"]=email
         logged_user["password"]=password
@@ -43,12 +67,20 @@ class Users(object):
 
     # method to get all users
     def get_all_users(self):
+        """
+        This method gets all details users
+        returns:all_users
+        """
         return all_users
 
 
 
     # method to get one user
     def get_one_user(self,email):
+        """
+        This method gets one users details.
+        returns:all_users
+        """
 
         if email in all_users:
             return all_users[email]
@@ -57,6 +89,10 @@ class Users(object):
 
 
     def validate_password(self,password):
+        """
+        This method checks for strength of a password
+        return:password
+        """
         is_password_valid = True
         if (len(password)<6 or len(password)>12):
             is_password_valid = False
@@ -69,15 +105,6 @@ class Users(object):
         elif not re.search("[$#@]",password):
             is_password_valid = False
         return is_password_valid
-
-
-
-
-
-
-
-
-
 
 
 

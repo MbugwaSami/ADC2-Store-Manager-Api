@@ -55,33 +55,50 @@ class TestBase(unittest.TestCase):
         minStock = "22"
         )
         self.test_product5 =dict(
-                product_id = 1,
-                product_name = "khaki shirt",
-                description = "White size 32",
-                price = 1,
-                stock = 100,
-                minStock = 10
-                )
+        product_id = 1,
+        product_name = "khaki shirt",
+        description = "White size 32",
+        price = 1,
+        stock = 100,
+        minStock = 10
+        )
+
+        self.test_product6 =dict(
+        product_id = 1,
+        product_name = "krt",
+        description = "White size 32",
+        price = 1,
+        stock = 100,
+        minStock = 10
+        )
+
+
 
         self.test_sale = dict(
            sale_id = 1,
-           items = "mutumba shirt",
+           item = "mutumba shirt",
            value = 3000.-0,
            time = "22:12:12"
            )
 
         self.test_sale1 = dict(
            sale_id = 1,
-           items = "khaki shirt",
+           item = "khaki shirt",
            value = "test",
            time = "10:18:20"
            )
 
         self.test_sale2 = dict(
            sale_id = 1,
-           items = "khaki shirt",
+           item = "khaki shirt",
            value = 2000,
            time = "2000"
+           )
+        self.test_sale3 = dict(
+           sale_id = 1,
+           item = "khaki Trouser",
+           value = 2000,
+           time = "10:18:20"
            )
 
         self.test_user = dict(
