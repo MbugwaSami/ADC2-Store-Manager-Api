@@ -1,7 +1,7 @@
 # ADC2_Store_Manager
 
 [![Build Status](https://travis-ci.org/MbugwaSami/ADC2-Store-Manager-Api.svg?branch=develop)](https://travis-ci.org/MbugwaSami/ADC2-Store-Manager-Api)
-[![Coverage Status](https://coveralls.io/repos/github/MbugwaSami/ADC2-Store-Manager-Api/badge.svg?branch=develop)
+![Coverage Status](https://coveralls.io/repos/github/MbugwaSami/ADC2-Store-Manager-Api/badge.svg?branch=develop)
 
 This repository  contains API endpoints for  Store Manager application. Store Manager application is an application that helps small scale stalls manage their sales and inventory.The application has two level of users, the store owner who is also the admin and the store attendant.
 The Admin is responsible for adding new products and creating user accounts and the store attendant is responsible for making new sales.
