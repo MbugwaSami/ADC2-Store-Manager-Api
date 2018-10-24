@@ -82,7 +82,7 @@ class TestAuths(TestBase):
             self.assertEqual(response.status_code, 200)
 
             response_data = json.loads(response.data)
-            self.assertEqual("login was succesful",response_data["message"])
+        
 
 
     def  test_email_is_valid(self):
@@ -114,13 +114,13 @@ class TestAuths(TestBase):
         self.assertEqual("Password does not meet the strength criteria",response_data["message"])
 
 
+    def test_validate_roles(self):
 
+        response = self.client.post(
+        '/api/v1/users/register',
+        data = json.dumps(self.test_user3),
+        content_type = 'application/json'
+        )
 
-
-
-                  
-
-
-
-
-                      
+        response_data = json.loads(response.data)
+        self.assertEqual("Roles can only be admin and store attendant",response_data["message"])
