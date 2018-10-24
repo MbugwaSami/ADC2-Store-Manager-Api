@@ -8,10 +8,23 @@ from ..models.sales import Sales, all_sales
 sale_object = Sales()
 # endpoint class for sales
 class SalesApi(Resource):
+    """
+    This class has post and get methods for sales
+    """
 
 
 
     def post(self):
+
+        """"
+        This method posts data of a sale.
+        returns: json response.
+        raises:sale fields cannot be empt.
+        raises:value must be a number message.
+        raises:time is invalid message.
+
+
+        """
         data=request.get_json()
 
         if not data:
@@ -42,6 +55,10 @@ class SalesApi(Resource):
 
 
     def get(self):
+        """
+        This method gets data of a sale
+        returns:list of sales.
+        """
         sales=sale_object.get_all()
         response=jsonify({"sale":sales,"message":"The above sales were found"})
         response.status_code=200
@@ -55,6 +72,10 @@ class SalesApi(Resource):
 class SingleSaleApi(Resource):
 
     def get(self,sale_id):
+        """
+        This method returns details of a single sale.
+        param:sale_id
+        """
         single_sale=sale_object.get_one(sale_id)
         response = jsonify({"sale":single_sale,"message":"The above sale was found"})
         response.status_code=200

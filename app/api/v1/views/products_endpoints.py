@@ -8,13 +8,27 @@ products_object = Products()
 
 # endpoint class for products
 class ProductsApi(Resource):
+    """
+    This class endpoints for products.
+    """
 
     def post(self):
+        """"
+        This method posts data of a product.
+        returns: json response.
+        raises:product fields cannot be empty.
+        raises:product name cannot be empty error.
+        raises:price must be a number message.
+        raises:stock must be an integer messager.
+
+
+        """
+
 
         data=request.get_json()
 
         if not data:
-            return {'message':'Product not available'}
+            return {'message':'fields can not be empty'}
 
         product_id = len(all_Products)+1
         product_name = data.get('product_name')
@@ -49,6 +63,11 @@ class ProductsApi(Resource):
         return response
 
     def get(self):
+
+        """"
+        This method gets data of all products.
+        returns:items details
+        """
         products_list = products_object.get_all()
         response = jsonify({"products":products_list,"message":"The above items were found"})
         response.status_code = 200
@@ -60,6 +79,10 @@ class ProductsApi(Resource):
 class SingleProductApi(Resource):
 
     def get(self,product_id):
+        """
+        This method gets data of a single product.
+        returns: details of a single product.
+        """
 
         response = jsonify({"product":products_object.get_one(product_id),"message":"The above item was found"})
         response.status_code = 200
