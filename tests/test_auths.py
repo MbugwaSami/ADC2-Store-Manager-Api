@@ -9,7 +9,7 @@ class TestAuths(TestBase):
     def test_create_account(self):
 
         response = self.client.post(
-        '/api/v1/users/register',
+        '/api/v1/users',
         data = json.dumps(self.test_user),
         content_type = 'application/json'
         )
@@ -18,7 +18,7 @@ class TestAuths(TestBase):
 
         # test user is unique
         response = self.client.post(
-        '/api/v1/users/register',
+        '/api/v1/users',
         data = json.dumps(self.test_user),
         content_type = 'application/json'
         )
@@ -32,7 +32,7 @@ class TestAuths(TestBase):
     def test_get_all_users(self):
 
         response = self.client.post(
-        '/api/v1/users/register',
+        '/api/v1/users',
         data = json.dumps(self.test_user),
         content_type = 'application/json'
         )
@@ -47,27 +47,10 @@ class TestAuths(TestBase):
         self.assertEqual("This are the users in the system",response_data["message"])
 
 
-    def test_get_one_user(self):
-
-        response = self.client.post(
-        '/api/v1/users/register',
-        data = json.dumps(self.test_user),
-        content_type = 'application/json'
-        )
-
-        self.assertEqual(response.status_code, 201)
-
-        response = self.client.get('/api/v1/user/samimbugwa@gmail.com')
-
-        self.assertEqual(response.status_code, 200)
-
-        response_data = json.loads(response.data)
-        self.assertEqual("The above user was found",response_data["message"])
-
     def test_user_login(self):
 
             response = self.client.post(
-            '/api/v1/users/register',
+            '/api/v1/users',
             data = json.dumps(self.test_user),
             content_type = 'application/json'
             )
@@ -82,14 +65,14 @@ class TestAuths(TestBase):
             self.assertEqual(response.status_code, 200)
 
             response_data = json.loads(response.data)
-        
+
 
 
     def  test_email_is_valid(self):
 
 
         response = self.client.post(
-        '/api/v1/users/register',
+        '/api/v1/users',
         data = json.dumps(self.test_user1),
         content_type = 'application/json'
         )
@@ -105,7 +88,7 @@ class TestAuths(TestBase):
 
 
         response = self.client.post(
-        '/api/v1/users/register',
+        '/api/v1/users',
         data = json.dumps(self.test_user2),
         content_type = 'application/json'
         )
@@ -117,7 +100,7 @@ class TestAuths(TestBase):
     def test_validate_roles(self):
 
         response = self.client.post(
-        '/api/v1/users/register',
+        '/api/v1/users',
         data = json.dumps(self.test_user3),
         content_type = 'application/json'
         )
