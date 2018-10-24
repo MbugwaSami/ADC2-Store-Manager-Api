@@ -74,7 +74,7 @@ class TestSales(TestBase):
 
         response = self.client.post(
         '/api/v1/products',
-        data = json.dumps(self.test_product),
+        data = json.dumps(self.test_product5),
         content_type='application/json'
         )
 
@@ -103,14 +103,3 @@ class TestSales(TestBase):
 
         response_data = json.loads(response.data)
         self.assertEqual("Please enter a valid time string",response_data["message"])
-
-
-
-
-
-
-
-
-
-
-        
