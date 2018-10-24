@@ -91,11 +91,18 @@ class TestBase(unittest.TestCase):
             )
 
         self.test_user2 = dict(
-            email = "samigwa@gmail.com",
+            email = "sam@gmail.com",
             names = "Sammy Njau",
             password = "12345",
             role = "attendant",
             )
+
+        self.test_user3 = dict(
+            email = "sami@gmail.com",
+            names = "Sammy Njau",
+            password = "Mwoboko10@",
+            role = "customer",
+                        )
 
         self.test_login = dict(
             email = "samimbugwa@gmail.com",

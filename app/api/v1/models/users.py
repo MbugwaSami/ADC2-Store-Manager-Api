@@ -17,6 +17,9 @@ class Users(object):
         if not self.validate_password(password):
             return {"message":"Password does not meet the strength criteria"}
         user_details['password']=password
+        if not (role=="Admin" or role =="attendant"):
+
+            return {'message':"Roles can only be admin and store attendant"}
         user_details['role']=role
 
         all_users[email] = user_details
@@ -32,6 +35,7 @@ class Users(object):
         logged_user["password"]=password
 
         return {'message':"logged in"}
+
 
 
 
@@ -53,19 +57,29 @@ class Users(object):
 
 
     def validate_password(self,password):
-        while True:
-            if (len(password)<6 or len(password)>12):
-                break
-            elif not re.search("[a-z]",password):
-                break
-            elif not re.search("[A-Z]",password):
-                break
-            elif not re.search("[0-9]",password):
-                break
-            elif not re.search("[$#@]",password):
-                break
-            else:
-                return password
+        is_password_valid = True
+        if (len(password)<6 or len(password)>12):
+            is_password_valid = False
+        elif not re.search("[a-z]",password):
+            is_password_valid = False
+        elif not re.search("[A-Z]",password):
+            is_password_valid = False
+        elif not re.search("[0-9]",password):
+            is_password_valid = False
+        elif not re.search("[$#@]",password):
+            is_password_valid = False
+        return is_password_valid
+
+
+
+
+
+
+
+
+
+
+
 
     def validate_email(self,email):
         if re.match("([a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$)",email,re.IGNORECASE):

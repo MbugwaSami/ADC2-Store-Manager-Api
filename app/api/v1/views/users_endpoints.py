@@ -27,9 +27,11 @@ class UsersApi(Resource):
 
         users = user_object.get_all_users()
 
-        response = jsonify(users)
+        response = jsonify({"users":users,"message":"This are the users in the system"})
+
 
         response.status_code = 200
+
 
         return response
 
@@ -37,9 +39,9 @@ class SingleUserApi(Resource):
 
     def get(self,email):
 
-         
+
          single_user = user_object.get_one_user(email)
-         response = jsonify(single_user)
+         response = jsonify({"user":single_user,"message":"The above user was found"})
          response.status_code=200
 
          return response
@@ -51,7 +53,5 @@ class SingleUserApi(Resource):
         email = data.get('email')
         password = data.get('password')
 
-        response = jsonify(user_object.user_login(email,password))
+        response = jsonify({"user":user_object.user_login(email,password),"message":"logged in"})
         response.status_code =201
-              
-
