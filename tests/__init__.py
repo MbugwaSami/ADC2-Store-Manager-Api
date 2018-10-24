@@ -86,12 +86,12 @@ class TestBase(unittest.TestCase):
         self.test_user1 = dict(
             email = "samimbugw",
             names = "Sammy Njau",
-            password = "12345",
+            password = "Mwoboko10@",
             role = "attendant",
             )
 
         self.test_user2 = dict(
-            email = "samimbugwa@gmail.com",
+            email = "samigwa@gmail.com",
             names = "Sammy Njau",
             password = "12345",
             role = "attendant",
