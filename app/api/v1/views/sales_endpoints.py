@@ -39,6 +39,7 @@ class SalesApi(Resource):
         timeformat = "%H:%M:%S"
         if not product_object.check(item):
             return {'message':'Product not available'}
+
         try:
             validtime = datetime.datetime.strptime(time, timeformat)
         except ValueError:

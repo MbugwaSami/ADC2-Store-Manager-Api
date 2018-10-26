@@ -1,6 +1,6 @@
 from .products  import all_Products
 
-all_sales={}
+all_sales=[]
 new_sale={}
 
 # class for handling all sales data
@@ -27,10 +27,12 @@ class Sales(object):
         returns:all sales.
         raises:sale not found error.
         """
-        if sale_id in all_sales:
-            return all_sales[sale_id]
+        for sale in all_sales:
 
-        return {'message':'sale not found'}
+            if sale_id == sale["sale_id"]:
+                return sale
+            return False    
+
 
 
 
@@ -48,13 +50,10 @@ class Sales(object):
         raises:sale already done message.
         raises:product not available message.
         """
-
-        if sale_id in all_sales:
-            return {'message':'It seems this sale has already been made'}
-            
+        new_sale['sale_id']=sale_id
         new_sale['item']=item
         new_sale['value']=value
         new_sale['time']=time
-        all_sales[sale_id]=new_sale
+        all_sales.append(new_sale)
 
         return {'message':'sale completed'}

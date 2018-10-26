@@ -26,12 +26,10 @@ class Products(object):
         return:one product details.
         raises: product not found message.
         """
+        for item in all_Products:
 
-        if product_id in all_Products:
-
-            return all_Products[product_id]
-
-        return {'message':'product not found'}
+            if product_id == item["product_id"]:
+                return item
 
 
     # method for adding data to all_sales dictionary
