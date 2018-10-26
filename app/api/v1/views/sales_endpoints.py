@@ -4,7 +4,9 @@ import time
 import datetime
 
 from ..models.sales import Sales, all_sales
+from ..models.products import Products
 
+product_object = Products()
 sale_object = Sales()
 # endpoint class for sales
 class SalesApi(Resource):
@@ -35,7 +37,8 @@ class SalesApi(Resource):
         value = (data.get('value'))
         time = data.get('time')
         timeformat = "%H:%M:%S"
-
+        if not product_object.check(item):
+            return {'message':'Product not available'}
         try:
             validtime = datetime.datetime.strptime(time, timeformat)
         except ValueError:
@@ -60,7 +63,7 @@ class SalesApi(Resource):
         returns:list of sales.
         """
         sales=sale_object.get_all()
-        response=jsonify({"sale":sales,"message":"The above sales were found"})
+        response=jsonify({"sale":sales,"message":"The following sales were found"})
         response.status_code=200
 
         return response
@@ -77,7 +80,7 @@ class SingleSaleApi(Resource):
         param:sale_id
         """
         single_sale=sale_object.get_one(sale_id)
-        response = jsonify({"sale":single_sale,"message":"The above sale was found"})
+        response = jsonify({"sale":single_sale,"message":"The following sale was found"})
         response.status_code=200
 
         return response

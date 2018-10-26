@@ -14,8 +14,6 @@ class TestSales(TestBase):
         content_type='application/json'
         )
 
-        self.assertEqual(response.status_code, 201)       
-
         response = self.client.post(
         '/api/v1/sales',
         data = json.dumps(self.test_sale3),
@@ -29,19 +27,24 @@ class TestSales(TestBase):
     def test_get_sales(self):
 
         response = self.client.post(
+        '/api/v1/products',
+        data = json.dumps(self.test_product),
+        content_type='application/json'
+        )
+
+        response = self.client.post(
         '/api/v1/sales',
         data = json.dumps(self.test_sale),
         content_type='application/json'
         )
 
-        self.assertEqual(response.status_code, 201)
 
         response = self.client.get('/api/v1/sales')
 
         self.assertEqual(response.status_code, 200)
 
         response_data = json.loads(response.data)
-        self.assertEqual("The above sales were found",response_data["message"])
+        self.assertEqual("The following sales were found",response_data["message"])
 
 
 
@@ -53,14 +56,12 @@ class TestSales(TestBase):
         content_type='application/json'
         )
 
-        self.assertEqual(response.status_code, 201)
-
         response = self.client.get('/api/v1/sales/1')
 
         self.assertEqual(response.status_code, 200)
 
         response_data = json.loads(response.data)
-        self.assertEqual("The above sale was found",response_data["message"])
+        self.assertEqual("The following sale was found",response_data["message"])
 
 
     def tests_validate_sales_value(self):

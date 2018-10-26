@@ -28,6 +28,13 @@ class UsersApi(Resource):
         names = data.get('names')
         password = data.get('password')
         role = data.get('role')
+        if user_object.get_one_user(email):
+            return  {"message":"Email already registered"}
+        if not user_object.validate_email(email):
+            return {"message":"Please enter a valid email address"}
+
+        if not user_object.validate_password(password):
+            return {"message":"Password does not meet the strength criteria"}
 
         response = jsonify(user_object.add_user(email,names,password,role))
 

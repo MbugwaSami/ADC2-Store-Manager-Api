@@ -51,13 +51,7 @@ class Sales(object):
 
         if sale_id in all_sales:
             return {'message':'It seems this sale has already been made'}
-
-        for sale_item in all_Products:
-
-            if item != all_Products[sale_item]['product_name']:
-
-                 return {'message':'Product not available'}
-
+            
         new_sale['item']=item
         new_sale['value']=value
         new_sale['time']=time

@@ -24,7 +24,7 @@ class TestProducts(TestBase):
 
         response = self.client.post(
         '/api/v1/products',
-        data = json.dumps(self.test_product),
+        data = json.dumps(self.test_product11),
         content_type='application/json'
         )
 
@@ -32,10 +32,8 @@ class TestProducts(TestBase):
 
         response = self.client.get('/api/v1/products')
 
-        self.assertEqual(response.status_code, 200)
-
         response_data = json.loads(response.data)
-        self.assertEqual("The above items were found",response_data["message"])
+        self.assertEqual("The following items were found",response_data["message"])
 
 
     def test_get_one_product(self):
@@ -53,7 +51,7 @@ class TestProducts(TestBase):
         self.assertEqual(response.status_code, 200)
 
         response_data = json.loads(response.data)
-        self.assertEqual("The above item was found",response_data["message"])
+        self.assertEqual("The following item was found",response_data["message"])
 
     def test_validate_product_name(self):
 
@@ -70,7 +68,7 @@ class TestProducts(TestBase):
         content_type='application/json'
         )
 
-       response_data = json.loads(response.data)
+       response_data = json.loads(response1.data)
        self.assertEqual("Product with this name already exists",response_data["message"])
 
        response = self.client.post(
