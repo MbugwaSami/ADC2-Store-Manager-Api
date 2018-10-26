@@ -9,6 +9,7 @@ install:
 
 script:
  - pytest
+ - coverage run --source=app.api.v1.views -m pytest && coverage report 
 after_success:
  - coveralls
  - codeclimate-test-reporter
