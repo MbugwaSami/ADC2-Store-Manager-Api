@@ -65,7 +65,14 @@ class Users(object):
         This method gets all details users
         returns:all_users
         """
-        return all_users
+        get_users=[]
+        user_ = {}
+        for user in all_users:
+                user_['email']=user['email']
+                user_['names']=user['names']
+                user_['role']=user['names']
+                get_users.append(user_)
+        return get_users
 
 
 
@@ -75,10 +82,13 @@ class Users(object):
         This method gets one users details.
         returns:all_users
         """
-
+        user_ = {}
         for user in all_users:
             if email ==user['email']:
-                return user
+                user_['email']=user['email']
+                user_['names']=user['names']
+                user_['role']=user['names']
+                return user_
 
         return False
 
