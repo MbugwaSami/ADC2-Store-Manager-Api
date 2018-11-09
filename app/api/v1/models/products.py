@@ -1,4 +1,4 @@
-all_Products = {}
+all_Products = []
 product_details = {}
 
 
@@ -26,12 +26,10 @@ class Products(object):
         return:one product details.
         raises: product not found message.
         """
+        for item in all_Products:
 
-        if product_id in all_Products:
-
-            return all_Products[product_id]
-
-        return {'message':'product not found'}
+            if product_id == item["product_id"]:
+                return item
 
 
     # method for adding data to all_sales dictionary
@@ -47,24 +45,19 @@ class Products(object):
         returns: product added message.
         raises:product existing message.
         """
-
-        if product_id in all_Products:
-
-            return {'message':'This product already exists'}
-
-        for item in all_Products:
-
-            if product_name == all_Products[item]['product_name']:
-
-
-                return {'message':'Product with this name already exists'}
-
+        product_details['product_id']=product_id
         product_details['product_name'] = product_name
         product_details['price'] = price
         product_details['description'] = description
         product_details['stock'] = stock
         product_details['minStock'] = minStock
 
-        all_Products[product_id] = product_details
+        all_Products.append(product_details)
 
         return {'message':'product succesfully added'}
+
+    def check(self,product_name):
+        for item in all_Products:
+
+            if product_name == item["product_name"]:
+                return True

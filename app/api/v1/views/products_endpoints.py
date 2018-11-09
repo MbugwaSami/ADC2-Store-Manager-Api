@@ -41,6 +41,8 @@ class ProductsApi(Resource):
 
             return {'message':'Product name cannot be empty'}
 
+        if products_object.check(product_name):
+            return {'message':'Product with this name already exists'}
 
         if type(stock) is not int:
 
@@ -56,8 +58,8 @@ class ProductsApi(Resource):
 
             return {'message':'Product price must be a number'}
 
-
-        response = jsonify(products_object.add_product(product_id,product_name,description,price,stock,minStock))
+        added_product = products_object.add_product(product_id,product_name,description,price,stock,minStock)
+        response = jsonify(added_product)
         response.status_code = 201
 
         return response
@@ -69,7 +71,7 @@ class ProductsApi(Resource):
         returns:items details
         """
         products_list = products_object.get_all()
-        response = jsonify({"products":products_list,"message":"The above items were found"})
+        response = jsonify({"products":products_list,"message":"The following items were found"})
         response.status_code = 200
         return response
 
@@ -84,7 +86,7 @@ class SingleProductApi(Resource):
         returns: details of a single product.
         """
 
-        response = jsonify({"product":products_object.get_one(product_id),"message":"The above item was found"})
+        response = jsonify({"product":products_object.get_one(product_id),"message":"The following item was found"})
         response.status_code = 200
 
         return response

@@ -1,5 +1,5 @@
 import re
-all_users={}
+all_users=[]
 user_details={}
 logged_user={}
 
@@ -26,21 +26,15 @@ class Users(object):
 
 
         """
-
-        if not self.validate_email(email):
-            return {"message":"Please enter a valid email address"}
-        if email in all_users:
-            return  {"message":"Email already registered"}
+        user_details['email']=email
         user_details['names']=names
-        if not self.validate_password(password):
-            return {"message":"Password does not meet the strength criteria"}
         user_details['password']=password
         if not (role=="Admin" or role =="attendant"):
 
             return {'message':"Roles can only be admin and store attendant"}
         user_details['role']=role
 
-        all_users[email] = user_details
+        all_users.append(user_details)
 
         return {'message':"user account succesfully created"}
 
@@ -71,7 +65,14 @@ class Users(object):
         This method gets all details users
         returns:all_users
         """
-        return all_users
+        get_users=[]
+        user_ = {}
+        for user in all_users:
+                user_['email']=user['email']
+                user_['names']=user['names']
+                user_['role']=user['names']
+                get_users.append(user_)
+        return get_users
 
 
 
@@ -81,11 +82,15 @@ class Users(object):
         This method gets one users details.
         returns:all_users
         """
+        user_ = {}
+        for user in all_users:
+            if email ==user['email']:
+                user_['email']=user['email']
+                user_['names']=user['names']
+                user_['role']=user['names']
+                return user_
 
-        if email in all_users:
-            return all_users[email]
-
-        return {'message':"user does not exist"}
+        return False
 
 
     def validate_password(self,password):

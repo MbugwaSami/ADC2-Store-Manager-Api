@@ -37,7 +37,6 @@ class TestAuths(TestBase):
         content_type = 'application/json'
         )
 
-        self.assertEqual(response.status_code, 201)
 
         response = self.client.get('/api/v1/users')
 
@@ -54,7 +53,6 @@ class TestAuths(TestBase):
             data = json.dumps(self.test_user),
             content_type = 'application/json'
             )
-            self.assertEqual(response.status_code, 201)
 
             response = self.client.post(
             '/api/v1/user/login',
